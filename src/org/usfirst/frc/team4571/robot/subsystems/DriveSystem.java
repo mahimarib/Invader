@@ -1,18 +1,16 @@
 package org.usfirst.frc.team4571.robot.subsystems;
 
-import org.usfirst.frc.team4571.robot.Robot;
-import org.usfirst.frc.team4571.robot.RobotMap;
-import org.usfirst.frc.team4571.robot.subsystems.pid.TurnOutput;
-
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
-
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import org.usfirst.frc.team4571.robot.Robot;
+import org.usfirst.frc.team4571.robot.RobotMap;
+import org.usfirst.frc.team4571.robot.subsystems.pid.TurnOutput;
 
 public class DriveSystem extends Subsystem {
 	private WPI_TalonSRX topLeftMotor,  bottomLeftMotor,
