@@ -36,7 +36,7 @@ public class Elevator extends Subsystem {
 		this.elevatorMotor.setSafetyEnabled(false);
 		this.elevatorMotor.setNeutralMode(NeutralMode.Brake);
 		
-		this.elevatorEncoder 	= new ElevatorEncoder(elevatorMotor);
+		this.elevatorEncoder = new ElevatorEncoder(elevatorMotor);
 		ElevatorOutput elevatorOutput = new ElevatorOutput(elevatorMotor);
 		this.elevatorController = new PIDController(p, i, d, elevatorEncoder, elevatorOutput);
 		
@@ -50,7 +50,7 @@ public class Elevator extends Subsystem {
      * 
      * @param setpointInInches setpoint in inches
      */
-    public int convertSetpoint(double setpointInInches) {
+	private int convertSetpoint(double setpointInInches) {
     	return (int)((setpointInInches / MAX_HEIGHT_IN_INCHES) * MAX_HEIGHT_ENCODER_TICK);
     }
     
@@ -59,15 +59,14 @@ public class Elevator extends Subsystem {
     }
     
     public PIDController getElevatorController() {
-    	return this.elevatorController;
+    	return elevatorController;
     }
     
-    public void setParameters(double height) {
-    	elevatorEncoder.reset();
+    public void setHeight(double heightInInches) {
     	elevatorController.setInputRange(0, MAX_HEIGHT_ENCODER_TICK);
     	elevatorController.setOutputRange(-0.5, 0.8);
-    	elevatorController.setSetpoint(convertSetpoint(height));
-    	elevatorController.setAbsoluteTolerance(height * 0.1); // 10% tolerance
+    	elevatorController.setSetpoint(getTick() + convertSetpoint(heightInInches));
+    	elevatorController.setAbsoluteTolerance(heightInInches * 0.1); // 10% tolerance
     	elevatorController.enable();
     }
     
@@ -92,7 +91,7 @@ public class Elevator extends Subsystem {
     }
     
     public boolean isOnTarget() {
-    	return this.elevatorController.onTarget();
+    	return elevatorController.onTarget();
     }
     
     public boolean isLimitSwitchPressed() {
