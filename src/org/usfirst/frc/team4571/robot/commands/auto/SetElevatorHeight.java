@@ -17,7 +17,7 @@ public class SetElevatorHeight extends Command {
 
     protected void initialize() {
     	Robot.ELEVATOR.resetEncoder();
-    	Robot.ELEVATOR.setParameters(height);
+    	Robot.ELEVATOR.setHeight(height);
     }
 
     protected void execute() {
