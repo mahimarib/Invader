@@ -5,7 +5,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.PIDOutput;
 
 public class ElevatorOutput implements PIDOutput {
-	WPI_TalonSRX elevatorMotor;
+	private WPI_TalonSRX elevatorMotor;
 	
 	public ElevatorOutput(WPI_TalonSRX elevatorMotor) {
 		this.elevatorMotor = elevatorMotor;
