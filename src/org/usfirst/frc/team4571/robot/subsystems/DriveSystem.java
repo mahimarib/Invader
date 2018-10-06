@@ -37,9 +37,9 @@ public class DriveSystem extends Subsystem {
                                 tuning_D = 0;
 								
 	public DriveSystem() {
-		this.topLeftMotor 	  = new WPI_TalonSRX(RobotMap.TOP_LEFT_MOTOR);
+		this.topLeftMotor     = new WPI_TalonSRX(RobotMap.TOP_LEFT_MOTOR);
 		this.bottomLeftMotor  = new WPI_TalonSRX(RobotMap.BOTTOM_LEFT_MOTOR);
-		this.topRightMotor 	  = new WPI_TalonSRX(RobotMap.TOP_RIGHT_MOTOR);
+		this.topRightMotor    = new WPI_TalonSRX(RobotMap.TOP_RIGHT_MOTOR);
 		this.bottomRightMotor = new WPI_TalonSRX(RobotMap.BOTTOM_RIGHT_MOTOR);
 		
 		this.topLeftMotor.setExpiration(Robot.DEFAULT_PERIOD);
@@ -116,8 +116,7 @@ public class DriveSystem extends Subsystem {
 	public PIDController getTurnController() {
 		return this.turnController;
 	}
-	
-	
+
 	/**
 	 * used for making big turns
 	 * 
@@ -131,11 +130,8 @@ public class DriveSystem extends Subsystem {
 		turnController.setAbsoluteTolerance(5.0f);
 		turnController.enable();
 	}
-	
-	
-	
+
 	public void disableTurnPID() {
 		this.turnController.disable();
 	}
-	
 }
