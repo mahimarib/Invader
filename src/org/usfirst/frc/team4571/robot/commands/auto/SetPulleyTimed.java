@@ -1,8 +1,7 @@
 package org.usfirst.frc.team4571.robot.commands.auto;
 
-import org.usfirst.frc.team4571.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.TimedCommand;
+import org.usfirst.frc.team4571.robot.Robot;
 
 public class SetPulleyTimed extends TimedCommand {
 
@@ -11,17 +10,15 @@ public class SetPulleyTimed extends TimedCommand {
         requires(Robot.PULLEY);
     }
 
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     protected void execute() {
-    	Robot.PULLEY.goDown();
+        Robot.PULLEY.goDown();
     }
 
     protected void end() {
-    	Robot.PULLEY.setPulley(0);
+        Robot.PULLEY.setPulley(0);
     }
 
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
 }

@@ -1,12 +1,11 @@
 package org.usfirst.frc.team4571.robot.commands.teleop.drive;
 
-import org.usfirst.frc.team4571.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4571.robot.Robot;
 
 /**
  * This is the teleOP command of controlling the tank drive using 2 Joysticks
- * 
+ *
  * @author Mahim
  */
 public class TeleOPDrive extends Command {
@@ -16,14 +15,14 @@ public class TeleOPDrive extends Command {
     }
 
     protected void initialize() {
-    	Robot.DRIVE_SYSTEM.stop();
+        Robot.DRIVE_SYSTEM.stop();
     }
 
     protected void execute() {
-    	double left  = Robot.LEFT_DRIVE_STICK.getYAxis();
-    	double right = Robot.RIGHT_DRIVE_STICK.getYAxis();
-    	
-    	Robot.DRIVE_SYSTEM.drive(left, right);
+        double left  = Robot.LEFT_DRIVE_STICK.getYAxis();
+        double right = Robot.RIGHT_DRIVE_STICK.getYAxis();
+
+        Robot.DRIVE_SYSTEM.drive(left, right);
     }
 
     protected boolean isFinished() {
@@ -31,7 +30,7 @@ public class TeleOPDrive extends Command {
     }
 
     protected void end() {
-    	Robot.DRIVE_SYSTEM.stop();
+        Robot.DRIVE_SYSTEM.stop();
     }
 
     protected void interrupted() {}

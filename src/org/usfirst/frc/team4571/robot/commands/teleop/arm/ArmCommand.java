@@ -1,26 +1,25 @@
 package org.usfirst.frc.team4571.robot.commands.teleop.arm;
 
-import org.usfirst.frc.team4571.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4571.robot.Robot;
 
 /**
  * This command controls the wheels of the arms, it will spin when a button
- * is held, one button will spin it forward for out take and spin the other way 
+ * is held, one button will spin it forward for out take and spin the other way
  * for intake
- * 
+ *
  * @author Mahim
  */
 public class ArmCommand extends Command {
-    private static final double OPTIMAL_OUTTAKE_SPEED = 0.50,
-                                LOWER_SPEED			  = 0.3;
+    private static final double
+            OPTIMAL_OUTTAKE_SPEED = 0.50,
+            LOWER_SPEED           = 0.30;
 
     public ArmCommand() {
         requires(Robot.ARM_SYSTEM);
     }
 
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     protected void execute() {
         double rightTrigger = Robot.GAMEPAD.getRightTrigger();

@@ -1,28 +1,27 @@
 package org.usfirst.frc.team4571.robot.commands.auto;
 
-import org.usfirst.frc.team4571.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team4571.robot.Robot;
 
 /**
  *
  */
 public class SetElevatorHeight extends Command {
-	private double height;
+    private double height;
 
     public SetElevatorHeight(double height) {
-    	requires(Robot.ELEVATOR);
+        requires(Robot.ELEVATOR);
     }
 
     protected void initialize() {
-    	Robot.ELEVATOR.resetEncoder();
-    	Robot.ELEVATOR.setHeight(height);
+        Robot.ELEVATOR.resetEncoder();
+        Robot.ELEVATOR.setHeight(height);
     }
 
     protected void execute() {
-    	SmartDashboard.putNumber("encoder tick", Robot.ELEVATOR.getTick());
-    	SmartDashboard.putData("elevator", Robot.ELEVATOR.getElevatorController());
+        SmartDashboard.putNumber("encoder tick", Robot.ELEVATOR.getTick());
+        SmartDashboard.putData("elevator", Robot.ELEVATOR.getElevatorController());
     }
 
     protected boolean isFinished() {
@@ -30,10 +29,9 @@ public class SetElevatorHeight extends Command {
     }
 
     protected void end() {
-    	Robot.ELEVATOR.stopElevator();
-    	Robot.ELEVATOR.disablePID();
+        Robot.ELEVATOR.stopElevator();
+        Robot.ELEVATOR.disablePID();
     }
 
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
 }
