@@ -70,8 +70,7 @@ public class DriveSystem extends Subsystem {
 
         this.navX = new AHRS(Port.kMXP);
 
-        TurnOutput turnOutput = new TurnOutput(differentialDrive);
-        this.turnController = new PIDController(rotate_K, rotate_I, rotate_D, navX, turnOutput);
+        this.turnController = new PIDController(rotate_K, rotate_I, rotate_D, navX, new TurnOutput(differentialDrive));
     }
 
     public void initDefaultCommand() {}
