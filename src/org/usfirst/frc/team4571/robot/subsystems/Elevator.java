@@ -31,8 +31,7 @@ public class Elevator extends Subsystem {
         this.elevatorMotor.setNeutralMode(NeutralMode.Brake);
 
         this.elevatorEncoder = new ElevatorEncoder(elevatorMotor);
-        ElevatorOutput elevatorOutput = new ElevatorOutput(elevatorMotor);
-        this.elevatorController = new PIDController(p, i, d, elevatorEncoder, elevatorOutput);
+        this.elevatorController = new PIDController(p, i, d, elevatorEncoder, new ElevatorOutput(elevatorMotor));
 
         this.lowerLimit = new DigitalInput(RobotMap.LIMIT_SWITCH);
     }
