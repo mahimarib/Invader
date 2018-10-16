@@ -97,7 +97,6 @@ public class Robot extends TimedRobot {
     public void autonomousInit() {
         String gameData = ds.getGameSpecificMessage();
         m_autonomousCommand = autoChooser.getSelected();
-        Placement placement = placementChooser.getSelected();
 
         if (m_autonomousCommand != null && gameData.charAt(0) == 'R' && m_autonomousCommand.getName().equals("right")) {
             m_autonomousCommand.start();
