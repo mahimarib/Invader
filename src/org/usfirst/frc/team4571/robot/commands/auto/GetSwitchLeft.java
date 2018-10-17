@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GetSwitchLeft extends CommandGroup {
 
     public GetSwitchLeft() {
-        setName("left");
+        setName("LEFT");
         addSequential(new RunMotors(4.5, 0.5));
         addParallel(new SetElevatorTimed(1.5, 0.8));
         addSequential(new TurnCommand(90));
