@@ -59,16 +59,8 @@ public class Robot extends TimedRobot {
     // CLIMBER
     private static final ClimberCommand CLIMBER_COMMAND = new ClimberCommand();
 
-    public enum Placement {
-        Left, Middle, Right;
-
-        Placement() {}
-    }
-
     private Command m_autonomousCommand;
     private SendableChooser<Command> autoChooser = new SendableChooser<>();
-    private SendableChooser<Placement> placementChooser
-            = new SendableChooser<>();
 
     @Override
     public void robotInit() {
@@ -76,11 +68,6 @@ public class Robot extends TimedRobot {
         autoChooser.addObject("if left", new GetSwitchLeft());
         autoChooser.addObject("if right", new GetSwitchRight());
         SmartDashboard.putData("Auto mode", autoChooser);
-
-        placementChooser.addObject("left", Placement.Left);
-        placementChooser.addObject("middle", Placement.Middle);
-        placementChooser.addObject("right", Placement.Right);
-        SmartDashboard.putData("alliance placement", placementChooser);
     }
 
     @Override
@@ -100,11 +87,8 @@ public class Robot extends TimedRobot {
         String gameData = ds.getGameSpecificMessage();
         m_autonomousCommand = autoChooser.getSelected();
 
-        if (m_autonomousCommand != null && gameData.charAt(0) == 'R' &&
-            m_autonomousCommand.getName().equals("right")) {
-            m_autonomousCommand.start();
-        } else if (m_autonomousCommand != null && gameData.charAt(0) == 'L' &&
-                   m_autonomousCommand.getName().equals("left")) {
+        if (m_autonomousCommand != null &&
+            m_autonomousCommand.getName().charAt(0) == gameData.charAt(0)) {
             m_autonomousCommand.start();
         } else {
             Scheduler.getInstance().add(new RunMotors(4.5, 0.5));
