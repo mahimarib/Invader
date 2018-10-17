@@ -8,7 +8,7 @@ import org.usfirst.frc.team4571.robot.RobotMap;
 
 public class Pulley extends Subsystem {
     private final static double
-            UP_SPEED   =  0.5,
+            UP_SPEED = 0.5,
             DOWN_SPEED = -0.5;
     private WPI_TalonSRX pulleyMotor;
 

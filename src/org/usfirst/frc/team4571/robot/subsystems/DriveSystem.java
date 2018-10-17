@@ -31,7 +31,8 @@ public class DriveSystem extends Subsystem {
     private final AHRS navX;
 
     private final PIDController turnController;
-    private       WPI_TalonSRX topLeftMotor, bottomLeftMotor, topRightMotor, bottomRightMotor;
+    private WPI_TalonSRX topLeftMotor, bottomLeftMotor, topRightMotor,
+            bottomRightMotor;
 
     private DifferentialDrive differentialDrive;
 
@@ -61,8 +62,10 @@ public class DriveSystem extends Subsystem {
         topRightMotor.setInverted(true);
         bottomRightMotor.setInverted(true);
 
-        SpeedControllerGroup leftMotors  = new SpeedControllerGroup(topLeftMotor, bottomLeftMotor);
-        SpeedControllerGroup rightMotors = new SpeedControllerGroup(topRightMotor, bottomRightMotor);
+        SpeedControllerGroup leftMotors = new SpeedControllerGroup(
+                topLeftMotor, bottomLeftMotor);
+        SpeedControllerGroup rightMotors = new SpeedControllerGroup(
+                topRightMotor, bottomRightMotor);
 
         this.differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
         this.differentialDrive.setExpiration(Robot.DEFAULT_PERIOD);
@@ -70,7 +73,9 @@ public class DriveSystem extends Subsystem {
 
         this.navX = new AHRS(Port.kMXP);
 
-        this.turnController = new PIDController(rotate_K, rotate_I, rotate_D, navX, new TurnOutput(differentialDrive));
+        this.turnController = new PIDController(
+                rotate_K, rotate_I, rotate_D, navX,
+                new TurnOutput(differentialDrive));
     }
 
     public void initDefaultCommand() {}

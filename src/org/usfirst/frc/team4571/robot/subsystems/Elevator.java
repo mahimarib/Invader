@@ -14,15 +14,15 @@ public class Elevator extends Subsystem {
 
     private static final double
             MAX_HEIGHT_ENCODER_TICK = 29000,
-            MAX_HEIGHT_IN_INCHES    = 89;
+            MAX_HEIGHT_IN_INCHES = 89;
     private static final double
             p = 0.5,
             i = 0,
             d = 0;
-    private final PIDController   elevatorController;
+    private final PIDController elevatorController;
     private final ElevatorEncoder elevatorEncoder;
-    private       WPI_TalonSRX    elevatorMotor;
-    private       DigitalInput    lowerLimit;
+    private WPI_TalonSRX elevatorMotor;
+    private DigitalInput lowerLimit;
 
     public Elevator() {
         this.elevatorMotor = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR);
@@ -31,7 +31,8 @@ public class Elevator extends Subsystem {
         this.elevatorMotor.setNeutralMode(NeutralMode.Brake);
 
         this.elevatorEncoder = new ElevatorEncoder(elevatorMotor);
-        this.elevatorController = new PIDController(p, i, d, elevatorEncoder, new ElevatorOutput(elevatorMotor));
+        this.elevatorController = new PIDController(
+                p, i, d, elevatorEncoder, new ElevatorOutput(elevatorMotor));
 
         this.lowerLimit = new DigitalInput(RobotMap.LIMIT_SWITCH);
     }
@@ -44,7 +45,8 @@ public class Elevator extends Subsystem {
      * @param setpointInInches setpoint in inches
      */
     private int convertSetpoint(double setpointInInches) {
-        return (int) ((setpointInInches / MAX_HEIGHT_IN_INCHES) * MAX_HEIGHT_ENCODER_TICK);
+        return (int) ((setpointInInches / MAX_HEIGHT_IN_INCHES) *
+                      MAX_HEIGHT_ENCODER_TICK);
     }
 
     public double getTick() {
@@ -58,8 +60,10 @@ public class Elevator extends Subsystem {
     public void setHeight(double heightInInches) {
         elevatorController.setInputRange(0, MAX_HEIGHT_ENCODER_TICK);
         elevatorController.setOutputRange(-0.5, 0.8);
-        elevatorController.setSetpoint(getTick() + convertSetpoint(heightInInches));
-        elevatorController.setAbsoluteTolerance(heightInInches * 0.1); // 10% tolerance
+        elevatorController.setSetpoint(
+                getTick() + convertSetpoint(heightInInches));
+        elevatorController.setAbsoluteTolerance(
+                heightInInches * 0.1); // 10% tolerance
         elevatorController.enable();
     }
 

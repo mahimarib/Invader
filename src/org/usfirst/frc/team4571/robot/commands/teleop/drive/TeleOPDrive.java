@@ -19,7 +19,7 @@ public class TeleOPDrive extends Command {
     }
 
     protected void execute() {
-        double left  = Robot.LEFT_DRIVE_STICK.getYAxis();
+        double left = Robot.LEFT_DRIVE_STICK.getYAxis();
         double right = Robot.RIGHT_DRIVE_STICK.getYAxis();
 
         Robot.DRIVE_SYSTEM.drive(left, right);

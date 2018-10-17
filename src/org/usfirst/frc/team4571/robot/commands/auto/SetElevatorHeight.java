@@ -21,7 +21,8 @@ public class SetElevatorHeight extends Command {
 
     protected void execute() {
         SmartDashboard.putNumber("encoder tick", Robot.ELEVATOR.getTick());
-        SmartDashboard.putData("elevator", Robot.ELEVATOR.getElevatorController());
+        SmartDashboard.putData(
+                "elevator", Robot.ELEVATOR.getElevatorController());
     }
 
     protected boolean isFinished() {

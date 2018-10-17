@@ -7,12 +7,14 @@ package org.usfirst.frc.team4571.robot.subsystems.archive;
 //import edu.wpi.first.wpilibj.command.Subsystem;
 //
 ///**
-// * This subsytem controls the LED strips on the robot. This works with the REV 
+// * This subsytem controls the LED strips on the robot. This works with the
+// REV
 // * Blinkin, you would use it as by creating a fake motor and set it to a PWM 
 // * port. You can use different patterns by setting the "motor" to different 
 // * values as well as setting different expiration times for the PWM object.
 // * 
-// * @see <a href="http://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf">REV Documentation</a>
+// * @see <a href="http://www.revrobotics.com/content/docs/REV-11-1105-UM
+// .pdf">REV Documentation</a>
 // * 
 // * @author Mahim
 // */

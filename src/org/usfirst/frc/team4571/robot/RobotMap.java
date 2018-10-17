@@ -21,28 +21,28 @@ public class RobotMap {
      * Joystick ports
      */
     public static final int
-            LEFT_JOYSTICK  = 0,
+            LEFT_JOYSTICK = 0,
             RIGHT_JOYSTICK = 1,
-            GAMEPAD        = 2;
+            GAMEPAD = 2;
 
     /**
      * Drive system motor channels
      */
     public static final int
-            TOP_LEFT_MOTOR     = 2,
-            BOTTOM_LEFT_MOTOR  = 1,
-            TOP_RIGHT_MOTOR    = 3,
+            TOP_LEFT_MOTOR = 2,
+            BOTTOM_LEFT_MOTOR = 1,
+            TOP_RIGHT_MOTOR = 3,
             BOTTOM_RIGHT_MOTOR = 4;
 
     /**
      * Arm system motor channels
      */
     public static final int
-            LEFT_ARM_MOTOR  = 9,
+            LEFT_ARM_MOTOR = 9,
             RIGHT_ARM_MOTOR = 8,
-            ELEVATOR_MOTOR  = 5,
-            PULLEY_MOTOR    = 6,
-            LIMIT_SWITCH    = 0; // Make sure it is on the DIO Port
+            ELEVATOR_MOTOR = 5,
+            PULLEY_MOTOR = 6,
+            LIMIT_SWITCH = 0; // Make sure it is on the DIO Port
 
     /**
      * Climber system motor channels

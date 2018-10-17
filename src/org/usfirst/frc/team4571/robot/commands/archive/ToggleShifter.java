@@ -13,7 +13,8 @@ package org.usfirst.frc.team4571.robot.commands.archive;
 // * <p>
 // * This command will only work if it is assigned to execute when a button 
 // * is pressed, please check this method how to assign it
-// * {@link LogitechExtreme3DPro#button1WhenPressed(Command)}. Make sure it is the same
+// * {@link LogitechExtreme3DPro#button1WhenPressed(Command)}. Make sure it
+// is the same
 // * button that is used when instantiating the class.
 // * 
 // * @author Mahim

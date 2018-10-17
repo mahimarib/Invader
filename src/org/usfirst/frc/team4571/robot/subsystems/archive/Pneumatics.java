@@ -2,7 +2,8 @@ package org.usfirst.frc.team4571.robot.subsystems.archive;
 //package org.usfirst.frc.team4571.robot.subsystems;
 //
 //import org.usfirst.frc.team4571.robot.RobotMap;
-//import org.usfirst.frc.team4571.robot.subsystems.DriveSystem.TransmissionState;
+//import org.usfirst.frc.team4571.robot.subsystems.DriveSystem
+// .TransmissionState;
 //
 //import edu.wpi.first.wpilibj.Compressor;
 //import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -23,10 +24,14 @@ package org.usfirst.frc.team4571.robot.subsystems.archive;
 //	
 //	public Pneumatics() {
 //		this.compressor 		 = new Compressor(RobotMap.COMPRESSOR_MODULE);
-//		this.transmissionShifter = new DoubleSolenoid(RobotMap.TRANSMISSION_SHIFTER_FORWARD, 
-//													  RobotMap.TRANSMISSION_SHIFTER_REVERSE);
-//		this.testSolenoid		 = new DoubleSolenoid(RobotMap.TEST_SOLENOID_FORWARD,
-//													  RobotMap.TEST_SOLENOID_REVERSE);
+//		this.transmissionShifter = new DoubleSolenoid(RobotMap
+// .TRANSMISSION_SHIFTER_FORWARD,
+//													  RobotMap
+// .TRANSMISSION_SHIFTER_REVERSE);
+//		this.testSolenoid		 = new DoubleSolenoid(RobotMap
+// .TEST_SOLENOID_FORWARD,
+//													  RobotMap
+// .TEST_SOLENOID_REVERSE);
 //	}
 //
 //    public void initDefaultCommand() {}
@@ -46,7 +51,8 @@ package org.usfirst.frc.team4571.robot.subsystems.archive;
 //    
 //    public void pushOutShifter() {
 //    	this.transmissionShifter.set(Value.kForward);
-//    	this.transmissionState.setTransmissionState(TransmissionState.HighGear);
+//    	this.transmissionState.setTransmissionState(TransmissionState
+// .HighGear);
 //    }
 //    
 //    public void pushInTestSolenoid() {

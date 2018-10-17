@@ -22,7 +22,8 @@ public class TurnCommand extends Command {
     }
 
     private void log() {
-        SmartDashboard.putData("angle pid", Robot.DRIVE_SYSTEM.getTurnController());
+        SmartDashboard.putData(
+                "angle pid", Robot.DRIVE_SYSTEM.getTurnController());
         SmartDashboard.putNumber("angle", Robot.DRIVE_SYSTEM.getAngle());
     }
 

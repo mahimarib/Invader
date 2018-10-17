@@ -8,7 +8,7 @@ import org.usfirst.frc.team4571.robot.RobotMap;
 
 public class Climber extends Subsystem {
     private final static double
-            UP_SPEED   = 0.9,
+            UP_SPEED = 0.9,
             DOWN_SPEED = -0.9;
     private WPI_TalonSRX climberMotor;
 

@@ -13,7 +13,7 @@ import org.usfirst.frc.team4571.robot.Robot;
 public class ArmCommand extends Command {
     private static final double
             OPTIMAL_OUTTAKE_SPEED = 0.50,
-            LOWER_SPEED           = 0.30;
+            LOWER_SPEED = 0.30;
 
     public ArmCommand() {
         requires(Robot.ARM_SYSTEM);
@@ -23,7 +23,7 @@ public class ArmCommand extends Command {
 
     protected void execute() {
         double rightTrigger = Robot.GAMEPAD.getRightTrigger();
-        double leftTrigger  = Robot.GAMEPAD.getLeftTrigger();
+        double leftTrigger = Robot.GAMEPAD.getLeftTrigger();
 
         if (rightTrigger > 0 && rightTrigger > leftTrigger) {
             Robot.ARM_SYSTEM.setArmMotors(-rightTrigger);

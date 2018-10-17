@@ -23,7 +23,8 @@ public class ElevatorEncoder implements PIDSource {
 
     @Override
     public double pidGet() {
-        return -elevatorMotor.getSelectedSensorPosition(0); // the encoder returns negative values by default
+        // the encoder returns negative values by default
+        return -elevatorMotor.getSelectedSensorPosition(0);
     }
 
     public void reset() {

@@ -24,8 +24,10 @@ public class PulleyCommand extends Command {
     }
 
     public void log() {
-        SmartDashboard.putBoolean("is d pad pressed up", Robot.GAMEPAD.isDPadPressedUp());
-        SmartDashboard.putBoolean("is d pad pressed down", Robot.GAMEPAD.isDPadPressedDown());
+        SmartDashboard.putBoolean(
+                "is d pad pressed up", Robot.GAMEPAD.isDPadPressedUp());
+        SmartDashboard.putBoolean(
+                "is d pad pressed down", Robot.GAMEPAD.isDPadPressedDown());
     }
 
     protected boolean isFinished() {
