@@ -14,5 +14,4 @@ public class TurnOutput implements PIDOutput {
     public void pidWrite(double output) {
         differentialDrive.tankDrive(output, -output);
     }
-
 }
