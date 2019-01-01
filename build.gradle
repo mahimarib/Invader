@@ -9,15 +9,12 @@ plugins {
     id "jaci.openrio.gradle.GradleRIO" version "2018.01.22"
 }
 
-def TEAM = 4571
-def ROBOT_CLASS = "frc.team4571.robot.Robot"
-
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project EmbeddedTools.
 deploy {
     targets {
         target("roborio", RoboRIO) {
-            team = TEAM
+            team = TEAM.toInteger()
         }
     }
     artifacts {

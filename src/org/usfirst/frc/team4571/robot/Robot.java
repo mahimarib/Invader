@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team4571.robot.commands.auto.GetSwitchLeft;
 import org.usfirst.frc.team4571.robot.commands.auto.GetSwitchRight;
 import org.usfirst.frc.team4571.robot.commands.auto.RunMotors;
