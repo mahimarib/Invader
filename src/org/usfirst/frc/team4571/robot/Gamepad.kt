@@ -2,24 +2,18 @@ package org.usfirst.frc.team4571.robot
 
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.buttons.JoystickButton
-import edu.wpi.first.wpilibj.command.Command
 
-/**
- * This class is for the logitech gamepad F310
- *
- * @author Mahim
- */
 class Gamepad(port: Int) : Joystick(port) {
-    val buttonA: JoystickButton
-    val buttonB: JoystickButton
-    val buttonX: JoystickButton
-    val buttonY: JoystickButton
-    val leftBumper: JoystickButton
-    val rightBumper: JoystickButton
-    val backButton: JoystickButton
-    val startButton: JoystickButton
-    val leftJoystickButton: JoystickButton
-    val rightJoystickButton: JoystickButton
+    val buttonA: JoystickButton = JoystickButton(this, 1)
+    val buttonB: JoystickButton = JoystickButton(this, 2)
+    val buttonX: JoystickButton = JoystickButton(this, 3)
+    val buttonY: JoystickButton = JoystickButton(this, 4)
+    val leftBumper: JoystickButton = JoystickButton(this, 5)
+    val rightBumper: JoystickButton = JoystickButton(this, 6)
+    val backButton: JoystickButton = JoystickButton(this, 7)
+    val startButton: JoystickButton = JoystickButton(this, 8)
+    val leftJoystickButton: JoystickButton = JoystickButton(this, 9)
+    val rightJoystickButton: JoystickButton = JoystickButton(this, 10)
 
     val leftXAxis: Double
         get() = this.getRawAxis(0)
@@ -42,24 +36,8 @@ class Gamepad(port: Int) : Joystick(port) {
         get() = this.getRawAxis(3)
 
     val isDPadPressedUp: Boolean
-        get() = this.pov == 0
+        get() = pov == 0
 
     val isDPadPressedDown: Boolean
-        get() = this.pov == 180
-
-    init {
-        buttonA = JoystickButton(this, 1)
-        buttonB = JoystickButton(this, 2)
-        buttonX = JoystickButton(this, 3)
-        buttonY = JoystickButton(this, 4)
-
-        leftBumper = JoystickButton(this, 5)
-        rightBumper = JoystickButton(this, 6)
-
-        backButton = JoystickButton(this, 7)
-        startButton = JoystickButton(this, 8)
-
-        leftJoystickButton = JoystickButton(this, 9)
-        rightJoystickButton = JoystickButton(this, 10)
-    }
+        get() = pov == 180
 }
