@@ -17,29 +17,32 @@ object RobotMap {
 
     const val PERIOD_IN_MS = (Robot.DEFAULT_PERIOD * 1000).toInt()
 
-    /** Joystick ports  */
-    const val LEFT_JOYSTICK = 0
-    const val RIGHT_JOYSTICK = 1
-    const val GAMEPAD = 2
+    object Controllers {
+        const val LEFT_JOYSTICK = 0
+        const val RIGHT_JOYSTICK = 1
+        const val GAMEPAD = 2
+    }
 
-    /** Drive system motor channels  */
-    const val TOP_LEFT_MOTOR = 2
-    const val BOTTOM_LEFT_MOTOR = 1
-    const val TOP_RIGHT_MOTOR = 3
-    const val BOTTOM_RIGHT_MOTOR = 4
+    object Drive {
+        const val TOP_LEFT_MOTOR = 2
+        const val BOTTOM_LEFT_MOTOR = 1
+        const val TOP_RIGHT_MOTOR = 3
+        const val BOTTOM_RIGHT_MOTOR = 4
+    }
 
-    /** Arm system motor channels  */
-    const val LEFT_ARM_MOTOR = 9
-    const val RIGHT_ARM_MOTOR = 8
-    const val ELEVATOR_MOTOR = 5
-    const val PULLEY_MOTOR = 6
-    const val LIMIT_SWITCH = 0 // Make sure it is on the DIO Port
+    object Elevator {
+        const val ELEVATOR_MOTOR = 5
+        const val LIMIT_SWITCH = 0 // Make sure it is on the DIO Port
+    }
 
-    /** Climber system motor channels  */
+    object Arm {
+        const val LEFT_ARM_MOTOR = 9
+        const val RIGHT_ARM_MOTOR = 8
+        const val PULLEY_MOTOR = 6
+    }
+
     const val CLIMBER_MOTOR = 7
 
     /** REV Blinkin PWM channel  */
     const val REV_BLINKIN_CHANNEL = 0
-
-    const val pulleyDownTime = 2.4
 }
