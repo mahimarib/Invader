@@ -76,7 +76,6 @@ object DriveSystem : Subsystem() {
         turnController.setInputRange(-180.0, 180.0)
         turnController.setOutputRange(-0.8, 0.8)
         turnController.setAbsoluteTolerance(5.0)
-
     }
 
     public override fun initDefaultCommand() {}
