@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup
 
 class GetSwitchLeft : CommandGroup() {
     init {
-        name = "left"
+        name = "L"
         addSequential(RunMotors(4.5, 0.5))
         addParallel(SetElevatorTimed(1.5, 0.8))
         addSequential(TurnCommand(90.0))
