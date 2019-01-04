@@ -1,24 +1,18 @@
 package org.usfirst.frc.team4571.robot.subsystems
 
-import org.usfirst.frc.team4571.robot.Robot
-import org.usfirst.frc.team4571.robot.RobotMap
-
-import com.ctre.phoenix.motorcontrol.NeutralMode
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX
-
 import edu.wpi.first.wpilibj.command.Subsystem
+import org.usfirst.frc.team4571.robot.RobotMap
+import org.usfirst.frc.team4571.robot.hardware.CanTalon
 
-class Climber : Subsystem() {
-    private val climberMotor: WPI_TalonSRX = WPI_TalonSRX(RobotMap.CLIMBER_MOTOR)
+object Climber : Subsystem() {
+    private val climberMotor: WPI_TalonSRX = CanTalon(RobotMap.CLIMBER_MOTOR)
 
     val climberSpeed: Double
         get() = climberMotor.get()
 
     init {
-        climberMotor.expiration = Robot.DEFAULT_PERIOD
-        climberMotor.isSafetyEnabled = false
-        climberMotor.setNeutralMode(NeutralMode.Brake)
-        climberMotor.configNeutralDeadband(0.25, 200)
+        climberMotor.configNeutralDeadband(0.25, RobotMap.PERIOD_IN_MS)
     }
 
     public override fun initDefaultCommand() {}

@@ -1,32 +1,22 @@
 package org.usfirst.frc.team4571.robot.subsystems
 
-import org.usfirst.frc.team4571.robot.Robot
-import org.usfirst.frc.team4571.robot.RobotMap
-
-import com.ctre.phoenix.motorcontrol.NeutralMode
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX
-
 import edu.wpi.first.wpilibj.command.Subsystem
+import org.usfirst.frc.team4571.robot.RobotMap
+import org.usfirst.frc.team4571.robot.hardware.CanTalon
 
-class Pulley : Subsystem() {
-    private val pulleyMotor: WPI_TalonSRX = WPI_TalonSRX(RobotMap.PULLEY_MOTOR)
+object Pulley : Subsystem() {
+    private const val UP_SPEED = 0.5
+    private const val DOWN_SPEED = -0.5
+
+    private val pulleyMotor: WPI_TalonSRX =
+        CanTalon(RobotMap.Arm.PULLEY_MOTOR)
 
     public override fun initDefaultCommand() {}
 
-    init {
-        pulleyMotor.expiration = Robot.DEFAULT_PERIOD
-        pulleyMotor.isSafetyEnabled = false
-        pulleyMotor.setNeutralMode(NeutralMode.Brake)
-    }
+    fun stop() = pulleyMotor.stopMotor()
 
-    fun setPulley(speed: Double) = pulleyMotor.set(speed)
+    fun goUp() = pulleyMotor.set(UP_SPEED)
 
-    fun goUp() = setPulley(UP_SPEED)
-
-    fun goDown() = setPulley(DOWN_SPEED)
-
-    companion object {
-        private const val UP_SPEED = 0.5
-        private const val DOWN_SPEED = -0.5
-    }
+    fun goDown() = pulleyMotor.set(DOWN_SPEED)
 }
