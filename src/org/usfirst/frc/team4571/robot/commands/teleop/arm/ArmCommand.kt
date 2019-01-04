@@ -5,8 +5,8 @@ import org.usfirst.frc.team4571.robot.Robot
 import org.usfirst.frc.team4571.robot.subsystems.ArmSystem
 
 object ArmCommand : Command() {
-    const val OUTTAKE_SPEED = 0.50
-    const val LOWER_SPEED = 0.3
+    private const val OUTTAKE_SPEED = 0.50
+    private const val LOWER_SPEED = 0.3
 
     init {
         requires(ArmSystem)
