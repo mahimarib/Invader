@@ -10,8 +10,6 @@ plugins {
     id "jaci.openrio.gradle.GradleRIO" version "2018.01.22"
 }
 
-// Define my targets (RoboRIO) and artifacts (deployable files)
-// This is added by GradleRIO's backing project EmbeddedTools.
 deploy {
     targets {
         target("roborio", RoboRIO) {
@@ -49,19 +47,14 @@ compileTestKotlin {
     }
 }
 
-// Defining my dependencies. In this case, WPILib (+ friends), CTRE Phoenix (Talon SRX)
-// and NavX.
 dependencies {
     compile wpilib()
     compile ctre()
     compile navx()
     compile openrio.powerup.matchData()
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk${java_version == '1.8' ? '8' : '11'}:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
-// Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
-// in order to make them all available at runtime. Also adding the manifest so WPILib
-// knows where to look for our Robot Class.
 jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     manifest GradleRIOPlugin.javaManifest(ROBOT_CLASS)
