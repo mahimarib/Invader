@@ -15,10 +15,9 @@ object Elevator : Subsystem() {
 
     private val elevatorMotor: WPI_TalonSRX = CanTalon(RobotMap.Elevator.ELEVATOR_MOTOR)
     private val lowerLimit: DigitalInput = DigitalInput(RobotMap.Elevator.LIMIT_SWITCH)
-    private val elevatorEncoder: ElevatorEncoder =
-        ElevatorEncoder(elevatorMotor)
-    val elevatorController: PIDController = PIDController(Encoder.P, Encoder.I, Encoder.D,
-                                                          elevatorEncoder, ElevatorOutput)
+    private val elevatorEncoder: ElevatorEncoder = ElevatorEncoder(elevatorMotor)
+    val elevatorController: PIDController =
+        PIDController(Encoder.P, Encoder.I, Encoder.D, elevatorEncoder, ElevatorOutput)
 
     val tick: Double
         get() = elevatorEncoder.pidGet()
