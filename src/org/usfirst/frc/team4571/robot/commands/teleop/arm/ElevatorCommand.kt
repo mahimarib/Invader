@@ -1,32 +1,30 @@
 package org.usfirst.frc.team4571.robot.commands.teleop.arm
 
-import org.usfirst.frc.team4571.robot.Robot
-
 import edu.wpi.first.wpilibj.command.Command
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+import org.usfirst.frc.team4571.robot.Robot
+import org.usfirst.frc.team4571.robot.subsystems.Elevator
 
-class ElevatorCommand : Command() {
+object ElevatorCommand : Command() {
     init {
-        requires(Robot.ELEVATOR)
+        requires(Elevator)
     }
 
-    override fun initialize() = Robot.ELEVATOR.resetEncoder()
+    override fun initialize() = Elevator.resetEncoder()
 
     override fun execute() {
-        SmartDashboard.putNumber("Raw Elevator Encoder Tick", Robot.ELEVATOR.tick)
-        if (Robot.ELEVATOR.isLimitSwitchPressed && Robot.GAMEPAD.rightYAxis < 0) {
-            Robot.ELEVATOR.stopElevator()
-        } else {
-            Robot.ELEVATOR.setElevatorMotor(Robot.GAMEPAD.rightYAxis)
+        SmartDashboard.putNumber("Raw Elevator Encoder Tick", Elevator.tick)
+        when {
+            Elevator.isLimitSwitchPressed &&
+                    Robot.GAMEPAD.rightYAxis < 0 -> Elevator.stopElevator()
+            else -> Elevator.setElevatorMotor(Robot.GAMEPAD.rightYAxis)
         }
     }
 
     override fun isFinished(): Boolean = false
 
     override fun end() {
-        Robot.ELEVATOR.stopElevator()
-        Robot.ELEVATOR.resetEncoder()
+        Elevator.stopElevator()
+        Elevator.resetEncoder()
     }
-
-    override fun interrupted() {}
 }

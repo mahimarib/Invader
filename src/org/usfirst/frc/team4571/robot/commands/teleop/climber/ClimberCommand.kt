@@ -1,21 +1,17 @@
 package org.usfirst.frc.team4571.robot.commands.teleop.climber
 
-import org.usfirst.frc.team4571.robot.Robot
-
 import edu.wpi.first.wpilibj.command.Command
+import org.usfirst.frc.team4571.robot.Robot
+import org.usfirst.frc.team4571.robot.subsystems.Climber
 
-class ClimberCommand : Command() {
+object ClimberCommand : Command() {
     init {
-        requires(Robot.CLIMBER)
+        requires(Climber)
     }
 
-    override fun initialize() {}
-
-    override fun execute() = Robot.CLIMBER.setPower(Robot.GAMEPAD.leftYAxis)
+    override fun execute() = Climber.setPower(Robot.GAMEPAD.leftYAxis)
 
     override fun isFinished(): Boolean = false
 
-    override fun end() = Robot.CLIMBER.stop()
-
-    override fun interrupted() {}
+    override fun end() = Climber.stop()
 }
