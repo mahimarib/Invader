@@ -2,29 +2,29 @@ package org.usfirst.frc.team4571.robot.commands.auto
 
 import edu.wpi.first.wpilibj.command.Command
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
-import org.usfirst.frc.team4571.robot.Robot
+import org.usfirst.frc.team4571.robot.subsystems.Elevator
 
 class SetElevatorHeight(height: Double) : Command() {
     private val height: Double = 0.toDouble()
 
     init {
-        requires(Robot.ELEVATOR)
+        requires(Elevator)
     }
 
     override fun initialize() {
-        Robot.ELEVATOR.resetEncoder()
-        Robot.ELEVATOR.setParameters(height)
+        Elevator.resetEncoder()
+        Elevator.goToHeight(height)
     }
 
     override fun execute() {
-        SmartDashboard.putNumber("encoder tick", Robot.ELEVATOR.tick)
-        SmartDashboard.putData("elevator", Robot.ELEVATOR.elevatorController)
+        SmartDashboard.putNumber("encoder tick", Elevator.tick)
+        SmartDashboard.putData("elevator", Elevator.elevatorController)
     }
 
-    override fun isFinished(): Boolean = Robot.ELEVATOR.isOnTarget
+    override fun isFinished(): Boolean = Elevator.isOnTarget
 
     override fun end() {
-        Robot.ELEVATOR.stopElevator()
-        Robot.ELEVATOR.disablePID()
+        Elevator.stopElevator()
+        Elevator.disablePID()
     }
 }

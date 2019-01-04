@@ -1,16 +1,15 @@
 package org.usfirst.frc.team4571.robot.commands.auto
 
-import org.usfirst.frc.team4571.robot.Robot
-
 import edu.wpi.first.wpilibj.command.TimedCommand
+import org.usfirst.frc.team4571.robot.subsystems.DriveSystem
 
 class RunMotors(runtime: Double, private val power: Double) : TimedCommand(runtime) {
 
     init {
-        requires(Robot.DRIVE_SYSTEM)
+        requires(DriveSystem)
     }
 
-    override fun execute() = Robot.DRIVE_SYSTEM.drive(power, power)
+    override fun execute() = DriveSystem.drive(power, power)
 
-    override fun end() = Robot.DRIVE_SYSTEM.stop()
+    override fun end() = DriveSystem.stop()
 }

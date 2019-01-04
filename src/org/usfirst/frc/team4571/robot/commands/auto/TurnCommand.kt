@@ -1,39 +1,38 @@
 package org.usfirst.frc.team4571.robot.commands.auto
 
-import org.usfirst.frc.team4571.robot.Robot
-
 import edu.wpi.first.wpilibj.command.Command
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+import org.usfirst.frc.team4571.robot.subsystems.DriveSystem
 
 class TurnCommand(private val angle: Double) : Command() {
 
     init {
-        requires(Robot.DRIVE_SYSTEM)
+        requires(DriveSystem)
     }
 
     override fun initialize() {
-        Robot.DRIVE_SYSTEM.resetNavX()
-        Robot.DRIVE_SYSTEM.setTurnPIDParameter(angle)
+        DriveSystem.resetNavX()
+        DriveSystem.turnToAngle(angle)
     }
 
     override fun execute() = log()
 
     private fun log() {
-        SmartDashboard.putData("angle pid", Robot.DRIVE_SYSTEM.turnController)
-        SmartDashboard.putNumber("angle", Robot.DRIVE_SYSTEM.angle)
+        SmartDashboard.putData("angle pid", DriveSystem.turnController)
+        SmartDashboard.putNumber("angle", DriveSystem.angle)
     }
 
-    override fun isFinished(): Boolean = Robot.DRIVE_SYSTEM.isTurnAngleOnTarget
+    override fun isFinished(): Boolean = DriveSystem.isTurnAngleOnTarget
 
     override fun end() {
-        Robot.DRIVE_SYSTEM.stop()
-        Robot.DRIVE_SYSTEM.disableTurnPID()
-        Robot.DRIVE_SYSTEM.resetNavX()
+        DriveSystem.stop()
+        DriveSystem.turnController.disable()
+        DriveSystem.resetNavX()
     }
 
     override fun interrupted() {
-        Robot.DRIVE_SYSTEM.stop()
-        Robot.DRIVE_SYSTEM.disableTurnPID()
-        Robot.DRIVE_SYSTEM.resetNavX()
+        DriveSystem.stop()
+        DriveSystem.turnController.disable()
+        DriveSystem.resetNavX()
     }
 }
